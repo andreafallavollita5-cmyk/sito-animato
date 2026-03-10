@@ -695,11 +695,7 @@
         scroll-behavior: auto !important;
       }
 
-      .hero__video {
-        display: none;
-      }
-
-      .hero {
+      .hero.hero--video-fallback {
         background:
           radial-gradient(circle at 18% 22%, rgba(96, 229, 59, 0.14), transparent 24%),
           linear-gradient(90deg, rgba(0, 8, 28, 0.9) 0%, rgba(0, 14, 42, 0.7) 42%, rgba(0, 12, 32, 0.48) 100%),
@@ -1608,7 +1604,7 @@
 <body>
   <div class="page">
     <header class="hero">
-      <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
         <source src="Formula Onboard - No Logo Edition_720p_caption.mp4" type="video/mp4" />
       </video>
       <div class="container hero__inner">
@@ -1795,9 +1791,31 @@
   </div>
   <script>
     (function () {
+      const hero = document.querySelector(".hero");
+      const heroVideo = document.querySelector(".hero__video");
       const carousel = document.getElementById("episodes-carousel");
       const prevButton = document.querySelector("[data-carousel-prev]");
       const nextButton = document.querySelector("[data-carousel-next]");
+
+      if (hero && heroVideo) {
+        heroVideo.muted = true;
+
+        const playHeroVideo = function () {
+          const playAttempt = heroVideo.play();
+
+          if (playAttempt && typeof playAttempt.catch === "function") {
+            playAttempt.catch(function () {
+              hero.classList.add("hero--video-fallback");
+            });
+          }
+        };
+
+        if (heroVideo.readyState >= 2) {
+          playHeroVideo();
+        } else {
+          heroVideo.addEventListener("canplay", playHeroVideo, { once: true });
+        }
+      }
 
       if (!carousel || !prevButton || !nextButton) {
         return;
