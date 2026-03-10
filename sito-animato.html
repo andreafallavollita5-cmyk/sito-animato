@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TIG Media | Performance Landing Page</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap");
+
+    /* =========================
+       Base
+    ========================= */
+    :root {
+      --navy: #001540;
+      --white: #FFFFFF;
+      --white-soft: #F2F2F2;
+      --black: #000000;
+      --text-soft: #F2F2F2;
+      --muted: #F2F2F2;
+      --form-bg: #FFFFFF;
+      --field-line: #949494;
+      --green: #60E53B;
+      --green-hover: #57d934;
+      --green-soft: rgba(96, 229, 59, 0.18);
+      --shadow: 0 18px 34px rgba(0, 0, 0, 0.32);
+      --overlay-40: rgba(0, 0, 0, 0.40);
+      --overlay-25: rgba(0, 0, 0, 0.25);
+      --overlay-66: rgba(0, 0, 0, 0.66);
+      --accent-shadow: rgba(222, 110, 75, 0.25);
+      --panel-stroke: rgba(255, 255, 255, 0.12);
+      --content-width: 1280px;
+      --section-padding: 48px;
+      --font-main: "Geist", "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+      --font-display: "Space Grotesk", "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+      --font-heading: "Raleway", "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+      --font-ui: "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+      --font-accent: "Geist", "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background:
+        radial-gradient(circle at top, rgba(96, 229, 59, 0.08), transparent 26%),
+        var(--navy);
+      color: var(--white);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+    .hero {
+      position: relative;
+      min-height: 815px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 8, 28, 0.82) 0%, rgba(0, 14, 42, 0.58) 38%, rgba(0, 12, 32, 0.28) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.48) 100%);
+      z-index: 1;
+    }
+
+    .hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 492px;
+      gap: 42px;
+      align-items: start;
+      padding: 28px 42px 70px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero__copy {
+      position: relative;
+      padding-top: 26px;
+      max-width: 620px;
+    }
+
+    .hero__copy::before {
+      content: "";
+      position: absolute;
+      inset: -22px -24px -18px -24px;
+      background:
+        radial-gradient(circle at top left, rgba(96, 229, 59, 0.14), transparent 42%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 28px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero__title {
+      margin: 0 0 24px;
+      font-size: clamp(4.2rem, 9.2vw, 8.7rem);
+      line-height: 0.9;
+      font-weight: 700;
+      letter-spacing: -0.07em;
+      font-family: var(--font-display);
+      color: var(--white-soft);
+      text-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
+    }
+
+    .hero__subtitle {
+      margin: 0 0 40px;
+      max-width: 460px;
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      color: var(--text-soft);
+      font-family: var(--font-heading);
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    .powered {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 18px;
+      border: 1px solid var(--panel-stroke);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(10px);
+    }
+
+    .powered__label {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      color: var(--white-soft);
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.34);
+    }
+
+    .powered__brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 320px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .footer__brand-logo {
+      width: 220px;
+    }
+
+    /* =========================
+       Form Card
+    ========================= */
+    .lead-card {
+      margin-top: 112px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 249, 252, 0.94));
+      color: var(--black);
+      border-radius: 28px;
+      padding: 30px 38px 40px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.26);
+      outline: 1px solid rgba(255, 255, 255, 0.36);
+      outline-offset: -2px;
+      transform-origin: top center;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+    }
+
+    .lead-card__title {
+      margin: 0 0 34px;
+      text-align: center;
+      font-size: 2.1rem;
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      font-family: var(--font-heading);
+      text-wrap: balance;
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 28px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .lead-form__field {
+      display: grid;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .lead-form__label {
+      font-size: 0.95rem;
+      line-height: 1;
+      color: var(--overlay-66);
+      font-family: var(--font-ui);
+    }
+
+    .lead-form__input {
+      border: 0;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.72);
+      background: transparent;
+      padding: 0 0 8px;
+      font: inherit;
+      color: var(--black);
+      outline: none;
+      font-family: var(--font-ui);
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .lead-form__input::placeholder {
+      color: transparent;
+    }
+
+    .lead-form__consents {
+      display: grid;
+      gap: 14px;
+      margin-top: -4px;
+    }
+
+    .lead-form__consent {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--overlay-66);
+      cursor: pointer;
+    }
+
+    .lead-form__checkbox {
+      margin: 3px 0 0;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+
+    .lead-form__consent a {
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .lead-form__submit {
+      border: 0;
+      border-radius: 12px;
+      min-height: 56px;
+      background: linear-gradient(180deg, #6bf047, var(--green));
+      color: var(--white);
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-family: var(--font-accent);
+      width: 100%;
+      max-width: 100%;
+      box-shadow: 0 14px 24px rgba(96, 229, 59, 0.24);
+    }
+
+    .lead-form__submit:hover {
+      background: var(--green-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 28px rgba(96, 229, 59, 0.28);
+    }
+
+    .lead-form__input:focus-visible {
+      border-bottom-color: var(--green);
+      box-shadow: 0 8px 0 -6px var(--green-soft);
+    }
+
+    .lead-form__checkbox:focus-visible,
+    .lead-form__submit:focus-visible {
+      outline: 2px solid rgba(96, 225, 53, 0.72);
+      outline-offset: 3px;
+    }
+
+    .lead-card:focus-within,
+    .lead-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    /* =========================
+       Episodes
+    ========================= */
+    .episodes {
+      background: var(--navy);
+      padding: 52px var(--section-padding) 84px;
+    }
+
+    .episodes__header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .episodes__header-copy {
+      max-width: 760px;
+    }
+
+    .episodes__title {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 3vw, 3.1rem);
+      line-height: 0.96;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      font-family: var(--font-heading);
+    }
+
+    .episodes__intro {
+      max-width: 600px;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 300;
+      color: var(--white-soft);
+      font-family: var(--font-accent);
+    }
+
+    .episodes__channel {
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 18px;
+      font-size: clamp(1.35rem, 1.9vw, 2rem);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      font-family: var(--font-heading);
+    }
+
+    .youtube-badge {
+      position: relative;
+      width: 68px;
+      height: 44px;
+      border-radius: 10px;
+      background: #ff1208;
+      flex: 0 0 auto;
+    }
+
+    .youtube-badge::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -50%);
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid #ffffff;
+    }
+
+    .episodes__actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      justify-self: end;
+    }
+
+    .episodes__nav {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      font: inherit;
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .episodes__nav:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-1px);
+    }
+
+    .episodes__nav:focus-visible {
+      outline: 2px solid rgba(96, 225, 53, 0.72);
+      outline-offset: 2px;
+    }
+
+    .episodes__film {
+      position: relative;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.96), rgba(7, 14, 33, 0.96));
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 42px 0;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .episodes__film-edge {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16px, 1fr));
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .episodes__film-edge--top {
+      top: 10px;
+    }
+
+    .episodes__film-edge--bottom {
+      bottom: 10px;
+    }
+
+    .episodes__film-hole {
+      height: 18px;
+      border-radius: 3px;
+      background: var(--navy);
+      opacity: 0.92;
+    }
+
+    .episodes__track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding: 20px var(--section-padding);
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      scroll-padding-left: var(--section-padding);
+    }
+
+    .episodes__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .episode-card {
+      flex: 0 0 clamp(280px, 31vw, 398px);
+      min-width: 0;
+      scroll-snap-align: start;
+    }
+
+    .episode-card__link {
+      display: grid;
+      gap: 12px;
+      color: inherit;
+      padding: 8px;
+      border-radius: 18px;
+      transition: background 0.24s ease;
+    }
+
+    .episode-card__code {
+      font-size: 0.72rem;
+      line-height: 1;
+      font-weight: 500;
+      font-family: Consolas, "Courier New", monospace;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ff9d00;
+      opacity: 0.88;
+    }
+
+    .episode-card__media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.34);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .episode-card__cover {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      opacity: 0.84;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .episode-card__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.3));
+      transition: background 0.28s ease;
+    }
+
+    .episode-card__play {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 0, 0, 0.9);
+      position: relative;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+      transform: scale(0.82);
+      transition: transform 0.28s ease, background 0.28s ease;
+    }
+
+    .episode-card__play::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-38%, -50%);
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 15px solid #ffffff;
+    }
+
+    .episode-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.78rem;
+      line-height: 1.2;
+      font-family: Consolas, "Courier New", monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ff9d00;
+    }
+
+    .episode-card__title {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.38;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: var(--font-heading);
+    }
+
+    .episode-card__link:hover,
+    .episode-card__link:focus-visible {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .episode-card__link:hover .episode-card__media,
+    .episode-card__link:focus-visible .episode-card__media {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 38px rgba(0, 0, 0, 0.38);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .episode-card__link:hover .episode-card__cover,
+    .episode-card__link:focus-visible .episode-card__cover {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+
+    .episode-card__link:hover .episode-card__overlay,
+    .episode-card__link:focus-visible .episode-card__overlay {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.22));
+    }
+
+    .episode-card__link:hover .episode-card__play,
+    .episode-card__link:focus-visible .episode-card__play {
+      transform: scale(1);
+      background: #ff0000;
+    }
+
+    .episode-card__link:focus-visible {
+      outline: none;
+    }
+
+    .episode-card__link:focus-visible .episode-card__media {
+      box-shadow: 0 0 0 2px rgba(96, 225, 53, 0.7), 0 22px 38px rgba(0, 0, 0, 0.38);
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+    .footer {
+      padding: 0 var(--section-padding) 84px;
+    }
+
+    .footer__brand {
+      display: block;
+      margin-bottom: 34px;
+    }
+
+    .footer__headline {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 3.4vw, 3rem);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      font-family: var(--font-heading);
+    }
+
+    .footer__subheadline {
+      margin: 0 0 50px;
+      font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+      line-height: 1.15;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      color: var(--text-soft);
+      font-family: var(--font-accent);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr 1fr;
+      gap: 48px;
+      max-width: 920px;
+    }
+
+    .footer__group {
+      display: grid;
+      gap: 4px;
+      align-content: start;
+    }
+
+    .footer__link {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer__link:hover,
+    .footer__nav a:hover {
+      color: #b7ffd0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .hero__video {
+        display: none;
+      }
+
+      .hero {
+        background:
+          radial-gradient(circle at 18% 22%, rgba(96, 229, 59, 0.14), transparent 24%),
+          linear-gradient(90deg, rgba(0, 8, 28, 0.9) 0%, rgba(0, 14, 42, 0.7) 42%, rgba(0, 12, 32, 0.48) 100%),
+          linear-gradient(180deg, rgba(0, 25, 79, 0.92) 0%, rgba(0, 15, 55, 0.98) 100%);
+      }
+    }
+
+    .footer__text,
+    .footer__nav a,
+    .footer__copyright {
+      font-size: 0.95rem;
+      line-height: 1.45;
+      font-weight: 400;
+      color: var(--white);
+      font-family: var(--font-heading);
+    }
+
+    .footer__nav {
+      display: grid;
+      gap: 2px;
+    }
+
+    .footer__copyright {
+      margin-top: 46px;
+      max-width: 180px;
+    }
+
+    .footer__policies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 18px;
+    }
+
+    /* =========================
+       Tablet
+    ========================= */
+    @media (max-width: 1024px) {
+      :root {
+        --section-padding: 24px;
+      }
+
+      .hero {
+        min-height: auto;
+        background-position: center top;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr 360px;
+        gap: 24px;
+        padding: 22px 22px 34px;
+      }
+
+      .hero__copy {
+        max-width: 420px;
+        padding-top: 0;
+      }
+
+      .hero__title {
+        margin-bottom: 16px;
+        font-size: clamp(3.2rem, 10vw, 5rem);
+      }
+
+      .hero__subtitle {
+        max-width: 280px;
+        margin-bottom: 18px;
+        font-size: clamp(1.2rem, 3.3vw, 2rem);
+      }
+
+      .powered__label {
+        font-size: 14px;
+      }
+
+      .brand-logo {
+        width: 210px;
+      }
+
+      .footer__brand-logo {
+        width: 170px;
+      }
+
+      .lead-card {
+        margin-top: 20px;
+        padding: 18px 20px 20px;
+        border-radius: 24px;
+      }
+
+      .lead-card__title {
+        margin-bottom: 16px;
+        font-size: 1.4rem;
+      }
+
+      .lead-form {
+        gap: 14px;
+      }
+
+      .lead-form__label {
+        font-size: 0.72rem;
+      }
+
+      .lead-form__input {
+        padding-bottom: 5px;
+        border-bottom-width: 1px;
+        font-size: 0.88rem;
+      }
+
+      .lead-form__submit {
+        min-height: 40px;
+        font-size: 0.85rem;
+        border-radius: 10px;
+      }
+
+      .episodes {
+        padding-top: 34px;
+        padding-bottom: 54px;
+      }
+
+      .episodes__header {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+
+      .episodes__actions {
+        justify-self: start;
+      }
+
+      .episodes__title {
+        margin-bottom: 14px;
+        font-size: 2rem;
+      }
+
+      .episodes__intro {
+        font-size: 0.92rem;
+      }
+
+      .episodes__channel {
+        gap: 14px;
+        margin-bottom: 14px;
+        font-size: 1.35rem;
+      }
+
+      .youtube-badge {
+        width: 36px;
+        height: 24px;
+        border-radius: 6px;
+      }
+
+      .youtube-badge::before {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-left-width: 10px;
+      }
+
+      .episodes__nav {
+        width: 40px;
+        height: 40px;
+      }
+
+      .episodes__film {
+        padding: 28px 0;
+      }
+
+      .episodes__film-edge {
+        gap: 8px;
+      }
+
+      .episodes__film-hole {
+        height: 12px;
+      }
+
+      .episodes__track {
+        gap: 18px;
+        padding: 16px 24px;
+      }
+
+      .episode-card {
+        flex-basis: min(78vw, 340px);
+      }
+
+      .episode-card__code {
+        font-size: 0.62rem;
+      }
+
+      .episode-card__play {
+        width: 52px;
+        height: 52px;
+      }
+
+      .episode-card__play::before {
+        border-top-width: 8px;
+        border-bottom-width: 8px;
+        border-left-width: 13px;
+      }
+
+      .episode-card__meta {
+        font-size: 0.68rem;
+      }
+
+      .episode-card__title {
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        padding-bottom: 28px;
+      }
+
+      .footer__brand {
+        margin-bottom: 24px;
+      }
+
+      .footer__headline {
+        margin-bottom: 12px;
+        font-size: 1.15rem;
+      }
+
+      .footer__subheadline {
+        margin-bottom: 24px;
+        font-size: 0.92rem;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .footer__text,
+      .footer__nav a,
+      .footer__copyright {
+        font-size: 0.82rem;
+      }
+
+      .footer__copyright {
+        margin-top: 4px;
+        max-width: 150px;
+      }
+
+      .footer__policies {
+        margin-top: 10px;
+        gap: 8px 14px;
+      }
+    }
+
+    /* =========================
+       Mobile
+    ========================= */
+    @media (max-width: 767px) {
+      .hero {
+        min-height: auto;
+        background-position: 36% top;
+      }
+
+      .hero::before,
+      .hero__video {
+        inset: 0 0 auto;
+        height: clamp(320px, 62vw, 460px);
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: start;
+        padding: 8px 20px 30px;
+      }
+
+      .hero__copy {
+        max-width: none;
+        min-height: clamp(320px, 62vw, 460px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 8px 0 0;
+      }
+
+      .hero__title {
+        font-size: 3.15rem;
+      }
+
+      .hero__subtitle {
+        max-width: 260px;
+        font-size: 0.82rem;
+        line-height: 1.06;
+      }
+
+      .powered {
+        align-items: center;
+      }
+
+      .lead-card {
+        margin-top: -24px;
+        padding: 16px 16px 18px;
+        border-radius: 22px;
+        width: 100%;
+        min-width: 0;
+        will-change: transform;
+        position: relative;
+        z-index: 3;
+      }
+
+      .lead-card__title {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+      }
+
+      .lead-form {
+        gap: 11px;
+      }
+
+      .lead-form__label {
+        font-size: 0.6rem;
+      }
+
+      .lead-form__input {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+      }
+
+      .lead-form__submit {
+        min-height: 32px;
+        font-size: 0.72rem;
+        width: 100%;
+      }
+
+      .lead-card:focus-within {
+        transform: scale(1.025);
+        box-shadow: 0 16px 26px rgba(0, 0, 0, 0.16);
+      }
+
+      .episodes {
+        padding-top: 36px;
+      }
+
+      .episodes__title {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+
+      .episodes__intro {
+        font-size: 0.72rem;
+        line-height: 1.42;
+      }
+
+      .episodes__channel {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+      }
+
+      .episodes__header {
+        gap: 14px;
+      }
+
+      .episodes__nav {
+        width: 36px;
+        height: 36px;
+        font-size: 0.92rem;
+      }
+
+      .episodes__film {
+        padding: 20px 0;
+      }
+
+      .episodes__film-edge {
+        left: 6px;
+        right: 6px;
+        gap: 6px;
+      }
+
+      .episodes__film-edge--top {
+        top: 6px;
+      }
+
+      .episodes__film-edge--bottom {
+        bottom: 6px;
+      }
+
+      .episodes__film-hole {
+        height: 9px;
+      }
+
+      .episodes__track {
+        gap: 14px;
+        padding: 12px 20px;
+      }
+
+      .episode-card {
+        flex-basis: 84vw;
+      }
+
+      .episode-card__code {
+        font-size: 0.54rem;
+      }
+
+      .episode-card__play {
+        width: 46px;
+        height: 46px;
+      }
+
+      .episode-card__play::before {
+        border-top-width: 7px;
+        border-bottom-width: 7px;
+        border-left-width: 11px;
+      }
+
+      .episode-card__meta {
+        font-size: 0.58rem;
+        gap: 10px;
+      }
+
+      .episode-card__title {
+        font-size: 0.76rem;
+      }
+
+      .brand-logo {
+        width: 155px;
+      }
+
+      .footer__brand-logo {
+        width: 138px;
+      }
+
+      .footer__headline {
+        font-size: 0.96rem;
+      }
+
+      .footer__brand {
+        margin-bottom: 18px;
+      }
+
+      .footer__subheadline {
+        font-size: 0.66rem;
+        line-height: 1.25;
+      }
+
+      .footer__text,
+      .footer__nav a,
+      .footer__copyright {
+        font-size: 0.52rem;
+      }
+
+      .footer__policies {
+        margin-top: 8px;
+      }
+    }
+
+    /* =========================
+       Small Mobile
+    ========================= */
+    @media (max-width: 372px) {
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .page,
+      .container,
+      .hero__copy,
+      .lead-card,
+      .filmstrip,
+      .lead-form__input,
+      .lead-form__submit {
+        max-width: 100%;
+      }
+
+      .hero {
+        background-position: 40% top;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 8px 16px 24px;
+      }
+
+      .hero__copy {
+        max-width: none;
+        min-height: clamp(300px, 68vw, 380px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 0;
+      }
+
+      .hero__title {
+        margin-bottom: 12px;
+        font-size: 2.7rem;
+        line-height: 0.95;
+      }
+
+      .hero__subtitle {
+        max-width: none;
+        margin-bottom: 16px;
+        font-size: 0.8rem;
+        line-height: 1.08;
+      }
+
+      .powered {
+        gap: 8px;
+        align-items: center;
+      }
+
+      .powered__label {
+        font-size: 0.74rem;
+      }
+
+      .brand-logo {
+        width: 150px;
+      }
+
+      .footer__brand-logo {
+        width: 132px;
+      }
+
+      .lead-card {
+        width: 100%;
+        margin-top: -20px;
+        padding: 14px 14px 16px;
+        border-radius: 18px;
+      }
+
+      .lead-card__title {
+        margin-bottom: 10px;
+        font-size: 0.98rem;
+      }
+
+      .lead-form {
+        gap: 10px;
+      }
+
+      .lead-form__field {
+        gap: 6px;
+      }
+
+      .lead-form__label {
+        font-size: 0.66rem;
+      }
+
+      .lead-form__input {
+        min-width: 0;
+        padding-bottom: 4px;
+        font-size: 16px;
+      }
+
+      .lead-form__submit {
+        min-height: 32px;
+        font-size: 0.72rem;
+      }
+
+      .lead-card:focus-within {
+        transform: scale(1.018);
+      }
+
+      .episodes {
+        padding: 28px 16px 38px;
+      }
+
+      .episodes__title {
+        margin-bottom: 10px;
+        font-size: 0.96rem;
+      }
+
+      .episodes__intro {
+        font-size: 0.68rem;
+      }
+
+      .episodes__channel {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.84rem;
+      }
+
+      .youtube-badge {
+        width: 30px;
+        height: 20px;
+        border-radius: 6px;
+      }
+
+      .youtube-badge::before {
+        border-top-width: 5px;
+        border-bottom-width: 5px;
+        border-left-width: 8px;
+      }
+
+      .episodes__header {
+        margin-bottom: 16px;
+      }
+
+      .episodes__actions {
+        gap: 8px;
+      }
+
+      .episodes__nav {
+        width: 34px;
+        height: 34px;
+      }
+
+      .episodes__film {
+        padding: 18px 0;
+      }
+
+      .episodes__film-edge {
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        gap: 5px;
+      }
+
+      .episodes__film-edge--bottom {
+        top: auto;
+        bottom: 4px;
+      }
+
+      .episodes__film-hole {
+        height: 8px;
+      }
+
+      .episodes__track {
+        padding: 10px 16px;
+      }
+
+      .episode-card {
+        flex-basis: 90vw;
+      }
+
+      .episode-card__play {
+        width: 42px;
+        height: 42px;
+      }
+
+      .episode-card__play::before {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-left-width: 10px;
+      }
+
+      .episode-card__meta {
+        font-size: 0.52rem;
+      }
+
+      .episode-card__title {
+        font-size: 0.72rem;
+      }
+
+      .footer {
+        padding: 0 16px 26px;
+      }
+
+      .footer__brand {
+        margin-bottom: 16px;
+      }
+
+      .footer__headline {
+        font-size: 0.92rem;
+      }
+
+      .footer__subheadline {
+        margin-bottom: 18px;
+        font-size: 0.64rem;
+        line-height: 1.28;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 100%;
+      }
+
+      .footer__group,
+      .footer__nav {
+        min-width: 0;
+      }
+
+      .footer__text,
+      .footer__nav a,
+      .footer__copyright {
+        font-size: 0.54rem;
+        line-height: 1.35;
+        word-break: break-word;
+      }
+
+      .footer__copyright {
+        margin-top: 2px;
+        max-width: 124px;
+      }
+
+      .footer__policies {
+        gap: 6px 10px;
+      }
+    }
+
+    /* =========================
+       Extra Small
+    ========================= */
+    @media (max-width: 350px) {
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .container,
+      .hero__copy,
+      .lead-card,
+      .filmstrip,
+      .lead-form__input,
+      .lead-form__submit {
+        max-width: 100%;
+      }
+
+      .hero {
+        background-position: 41% top;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 8px 14px 24px;
+      }
+
+      .hero__copy {
+        max-width: none;
+        min-height: clamp(280px, 70vw, 340px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 0;
+      }
+
+      .hero__title {
+        margin-bottom: 12px;
+        font-size: 2.5rem;
+        line-height: 0.94;
+      }
+
+      .hero__subtitle {
+        max-width: none;
+        margin-bottom: 16px;
+        font-size: 0.78rem;
+      }
+
+      .powered {
+        gap: 8px;
+        align-items: center;
+      }
+
+      .powered__label {
+        font-size: 0.72rem;
+      }
+
+      .brand-logo {
+        width: 142px;
+      }
+
+      .footer__brand-logo {
+        width: 126px;
+      }
+
+      .lead-card {
+        width: 100%;
+        margin-top: -18px;
+        padding: 14px 14px 16px;
+        border-radius: 18px;
+      }
+
+      .lead-card__title {
+        font-size: 0.92rem;
+        margin-bottom: 10px;
+      }
+
+      .lead-form {
+        gap: 10px;
+      }
+
+      .lead-form__field {
+        gap: 6px;
+      }
+
+      .lead-form__label,
+      .lead-form__input,
+      .lead-form__submit {
+        font-size: 0.68rem;
+      }
+
+      .lead-form__input {
+        min-width: 0;
+        padding-bottom: 4px;
+        font-size: 16px;
+      }
+
+      .lead-form__submit {
+        min-height: 30px;
+      }
+
+      .lead-card:focus-within {
+        transform: scale(1.014);
+      }
+
+      .episodes {
+        padding: 26px 14px 36px;
+      }
+
+      .episodes__title {
+        margin-bottom: 18px;
+        font-size: 0.92rem;
+      }
+
+      .episodes__intro {
+        font-size: 0.64rem;
+      }
+
+      .episodes__channel {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+      }
+
+      .youtube-badge {
+        width: 30px;
+        height: 20px;
+      }
+
+      .youtube-badge::before {
+        border-top-width: 5px;
+        border-bottom-width: 5px;
+        border-left-width: 8px;
+      }
+
+      .episodes__nav {
+        width: 30px;
+        height: 30px;
+        font-size: 0.82rem;
+      }
+
+      .episodes__track {
+        gap: 12px;
+        padding: 8px 14px;
+      }
+
+      .episode-card {
+        flex-basis: 92vw;
+      }
+
+      .episode-card__code,
+      .episode-card__meta {
+        font-size: 0.48rem;
+      }
+
+      .episode-card__title {
+        font-size: 0.68rem;
+      }
+
+      .footer {
+        padding: 0 14px 24px;
+      }
+
+      .footer__brand {
+        margin-bottom: 14px;
+      }
+
+      .footer__headline {
+        font-size: 0.88rem;
+      }
+
+      .footer__subheadline {
+        margin-bottom: 18px;
+        font-size: 0.62rem;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 100%;
+      }
+
+      .footer__group,
+      .footer__nav {
+        min-width: 0;
+      }
+
+      .footer__text,
+      .footer__nav a,
+      .footer__copyright {
+        font-size: 0.5rem;
+        line-height: 1.35;
+        word-break: break-word;
+      }
+
+      .footer__copyright {
+        margin-top: 2px;
+        max-width: 120px;
+      }
+
+      .footer__policies {
+        gap: 6px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="Formula Onboard - No Logo Edition_720p_caption.mp4" type="video/mp4" />
+      </video>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title">Ahi.. l&rsquo;Ai!</h1>
+          <p class="hero__subtitle">Cure e terapie per il performance marketing</p>
+
+          <div class="powered" aria-label="Powered by TIG Media">
+            <span class="powered__label">Powered by</span>
+            <img class="brand-logo" src="logo_tigmedia.png" alt="TIG Media" />
+          </div>
+        </div>
+
+        <aside class="lead-card" aria-labelledby="lead-form-title">
+          <h2 class="lead-card__title" id="lead-form-title">Richiedi<br />maggiori info</h2>
+          <form class="lead-form">
+            <label class="lead-form__field">
+              <span class="lead-form__label">Nome e Cognome*</span>
+              <input class="lead-form__input" type="text" name="name" placeholder="Nome e Cognome*" />
+            </label>
+            <label class="lead-form__field">
+              <span class="lead-form__label">Email*</span>
+              <input class="lead-form__input" type="email" name="email" placeholder="Email*" />
+            </label>
+            <label class="lead-form__field">
+              <span class="lead-form__label">Nome Azienda*</span>
+              <input class="lead-form__input" type="text" name="company" placeholder="Nome Azienda*" />
+            </label>
+            <label class="lead-form__field">
+              <span class="lead-form__label">Numero di telefono</span>
+              <input class="lead-form__input" type="tel" name="phone" placeholder="Numero di telefono" />
+            </label>
+            <div class="lead-form__consents">
+              <label class="lead-form__consent">
+                <input class="lead-form__checkbox" type="checkbox" name="privacy_policy" required />
+                <span>Ho letto e accetto la <a href="https://www.theinnovationgroup.it/privacy-policy-2" target="_blank" rel="noopener noreferrer">Privacy Policy</a> ai sensi del Regolamento UE 2016/679.</span>
+              </label>
+              <label class="lead-form__consent">
+                <input class="lead-form__checkbox" type="checkbox" name="marketing_consent" />
+                <span>Acconsento a ricevere comunicazioni informative e commerciali da TIG Media.</span>
+              </label>
+            </div>
+            <button class="lead-form__submit" type="submit">Invia richiesta</button>
+          </form>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="episodes" aria-labelledby="episodes-title">
+        <div class="container">
+          <div class="episodes__header">
+            <div class="episodes__header-copy">
+              <h2 class="episodes__title" id="episodes-title">VEDI TUTTI GLI EPISODI</h2>
+              <div class="episodes__channel" aria-label="Web Episode su YouTube">
+                <span class="youtube-badge" aria-hidden="true"></span>
+                <span>Web Episodes</span>
+              </div>
+              <p class="episodes__intro">Una raccolta di contenuti per capire come usare l'AI nel performance marketing, ottimizzare le campagne in tempo reale e trasformare dati e automazioni in lead e vendite.</p>
+            </div>
+
+            <div class="episodes__actions" aria-label="Controlli carosello episodi">
+              <button class="episodes__nav" type="button" data-carousel-prev aria-label="Scorri agli episodi precedenti">&#10094;</button>
+              <button class="episodes__nav" type="button" data-carousel-next aria-label="Scorri agli episodi successivi">&#10095;</button>
+            </div>
+          </div>
+
+          <div class="episodes__film">
+            <div class="episodes__film-edge episodes__film-edge--top" aria-hidden="true">
+              <span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span>
+            </div>
+
+            <div class="episodes__track" id="episodes-carousel">
+              <article class="episode-card">
+                <a class="episode-card__link" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                  <div class="episode-card__code">35MM FILM / KODAK 5219</div>
+                  <div class="episode-card__media">
+                    <img class="episode-card__cover" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80" alt="Team in riunione durante una presentazione marketing" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                    <div class="episode-card__overlay" aria-hidden="true">
+                      <span class="episode-card__play"></span>
+                    </div>
+                  </div>
+                  <div class="episode-card__meta">
+                    <span>EP 01 // ORIGINI</span>
+                    <span>1A</span>
+                  </div>
+                  <p class="episode-card__title">Strategie per usare l'AI nei funnel di acquisizione e ridurre il costo per lead con modelli piu efficienti.</p>
+                </a>
+              </article>
+
+              <article class="episode-card">
+                <a class="episode-card__link" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                  <div class="episode-card__code">35MM FILM / KODAK 5219</div>
+                  <div class="episode-card__media">
+                    <img class="episode-card__cover" src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1400&q=80" alt="Gruppo di lavoro in brainstorming in ufficio" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                    <div class="episode-card__overlay" aria-hidden="true">
+                      <span class="episode-card__play"></span>
+                    </div>
+                  </div>
+                  <div class="episode-card__meta">
+                    <span>EP 02 // SVILUPPO</span>
+                    <span>2</span>
+                  </div>
+                  <p class="episode-card__title">Approcci concreti per migliorare il ROAS con AI, creativita dinamiche, test automatici e ottimizzazione continua.</p>
+                </a>
+              </article>
+
+              <article class="episode-card">
+                <a class="episode-card__link" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                  <div class="episode-card__code">35MM FILM / KODAK 5219</div>
+                  <div class="episode-card__media">
+                    <img class="episode-card__cover" src="https://images.unsplash.com/photo-1758873269035-aae0e1fd3422?auto=format&fit=crop&w=1400&q=80" alt="Workshop strategico con team e lavagna" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                    <div class="episode-card__overlay" aria-hidden="true">
+                      <span class="episode-card__play"></span>
+                    </div>
+                  </div>
+                  <div class="episode-card__meta">
+                    <span>EP 03 // VISIONE</span>
+                    <span>2A</span>
+                  </div>
+                  <p class="episode-card__title">Analisi predittiva e lettura delle metriche per prendere decisioni piu rapide sulle campagne attive.</p>
+                </a>
+              </article>
+
+              <article class="episode-card">
+                <a class="episode-card__link" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                  <div class="episode-card__code">35MM FILM / KODAK 5219</div>
+                  <div class="episode-card__media">
+                    <img class="episode-card__cover" src="https://plus.unsplash.com/premium_photo-1661591484276-1b802009057e?auto=format&fit=crop&w=1400&q=80" alt="Team creativo al lavoro su progetto digitale" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+                    <div class="episode-card__overlay" aria-hidden="true">
+                      <span class="episode-card__play"></span>
+                    </div>
+                  </div>
+                  <div class="episode-card__meta">
+                    <span>EP 04 // CONCLUSIONE</span>
+                    <span>3</span>
+                  </div>
+                  <p class="episode-card__title">Casi pratici su AI, landing page, adv e conversioni per aumentare la qualita dei risultati.</p>
+                </a>
+              </article>
+            </div>
+
+            <div class="episodes__film-edge episodes__film-edge--bottom" aria-hidden="true">
+              <span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span><span class="episodes__film-hole"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__brand">
+          <img class="brand-logo footer__brand-logo" src="logo_tigmedia.png" alt="TIG Media" />
+        </div>
+
+        <h2 class="footer__headline">Siamo TIG - The Innovation Group</h2>
+        <p class="footer__subheadline">Progettiamo, raccontiamo e governiamo il cambiamento.</p>
+
+        <div class="footer__grid">
+          <div class="footer__group">
+            <a class="footer__link footer__text" href="mailto:info.media@tig.it">info.media@tig.it</a>
+            <a class="footer__link footer__text" href="tel:+3902499881">+39 02.499881</a>
+            <div class="footer__policies" aria-label="Policy links">
+              <a class="footer__link footer__text" href="https://www.theinnovationgroup.it/privacy-policy-2" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              <a class="footer__link footer__text" href="https://www.theinnovationgroup.it/cookie-policy/" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+            </div>
+            <p class="footer__copyright">@ 2026 TIG - The Innovation Group</p>
+          </div>
+
+          <div class="footer__group">
+            <a class="footer__text footer__link" href="https://www.google.com/maps/search/?api=1&query=Via+Romagnoli+6,+20146+Milano" target="_blank" rel="noopener noreferrer">Via Romagnoli, 6</a>
+            <a class="footer__text footer__link" href="https://www.google.com/maps/search/?api=1&query=Via+Romagnoli+6,+20146+Milano" target="_blank" rel="noopener noreferrer">20146, Milano</a>
+          </div>
+
+          <nav class="footer__nav" aria-label="Social links">
+            <a href="https://www.instagram.com/tig_media_theinnovationgroup/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/people/TIG-Media/61576162707798/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://linkedin.com/company/tigmedia2024/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      const carousel = document.getElementById("episodes-carousel");
+      const prevButton = document.querySelector("[data-carousel-prev]");
+      const nextButton = document.querySelector("[data-carousel-next]");
+
+      if (!carousel || !prevButton || !nextButton) {
+        return;
+      }
+
+      const getScrollAmount = () => {
+        const card = carousel.querySelector(".episode-card");
+        if (!card) {
+          return 320;
+        }
+
+        const styles = window.getComputedStyle(carousel);
+        const gap = parseFloat(styles.columnGap || styles.gap || "0");
+        return card.getBoundingClientRect().width + gap;
+      };
+
+      prevButton.addEventListener("click", function () {
+        carousel.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+      });
+
+      nextButton.addEventListener("click", function () {
+        carousel.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+      });
+    })();
+  </script>
+</body>
+</html>
